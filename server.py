@@ -60,8 +60,6 @@ def _ext_from_ct(ct: str) -> str:
 
 
 if __name__ == "__main__":
-    mcp.run(
-        transport="streamable-http",
-        host="0.0.0.0",
-        port=int(os.environ.get("PORT", 8000)),
-    )
+    os.environ.setdefault("HOST", "0.0.0.0")
+    os.environ.setdefault("PORT", "8000")
+    mcp.run(transport="streamable-http")
