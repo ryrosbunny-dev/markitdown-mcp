@@ -3,7 +3,10 @@ from markitdown import MarkItDown
 import httpx, tempfile, os
 from pathlib import Path
 
-mcp = FastMCP("markitdown")
+mcp = FastMCP(
+    "markitdown",
+    stateless_http=True,
+)
 md = MarkItDown()
 
 
