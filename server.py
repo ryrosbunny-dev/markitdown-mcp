@@ -59,7 +59,5 @@ def _ext_from_ct(ct: str) -> str:
     return ""
 
 
-if __name__ == "__main__":
-    os.environ.setdefault("HOST", "0.0.0.0")
-    os.environ.setdefault("PORT", "8000")
-    mcp.run(transport="streamable-http")
+# Экспортируем ASGI-приложение для uvicorn
+app = mcp.streamable_http_app()
