@@ -3,10 +3,7 @@ from markitdown import MarkItDown
 import httpx, tempfile, os
 from pathlib import Path
 
-mcp = FastMCP(
-    "markitdown",
-    stateless_http=True,
-)
+mcp = FastMCP("markitdown", stateless_http=True)
 md = MarkItDown()
 
 
@@ -62,7 +59,5 @@ def _ext_from_ct(ct: str) -> str:
     return ""
 
 
-if __name__ == "__main__":
-    import uvicorn
-    app = mcp.streamable_http_app()
-    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
+# app на уровне модуля — нужно для uvicorn
+app = mcp.streamable_http_app()
